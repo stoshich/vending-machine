@@ -1,15 +1,13 @@
 import React, { FC } from 'react'
+import { useAppSelector } from '../redux/hooks'
 import { IProduct } from '../types/product'
 import ProductItem from './ProductItem'
 
-interface IProductList {
-  items: IProduct[]
-}
-
-const Products: FC<IProductList> = ({ items }) => {
+const Products: FC = () => {
+  const products = useAppSelector(state => state.products)
   return (
     <div className='products__container'>
-      {items.map(product => <ProductItem key={product.id} {...product} />)}
+      {products.map(product => <ProductItem key={product.id} {...product} />)}
     </div>
   )
 }
