@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: IMoney = money
 
-interface MoneyAction {
+export interface MoneyAction {
   value: 1 | 5 | 10 | 50 | 100 | 500 | 1000;
   amount: number;
 }
@@ -13,15 +13,15 @@ export const monyeSlice = createSlice({
   name: 'money',
   initialState,
   reducers: {
-    increment: (state, action: PayloadAction<MoneyAction>) => {
+    incMoney: (state, action: PayloadAction<MoneyAction>) => {
       state[action.payload.value] += action.payload.amount
     },
-    decrement: (state, action: PayloadAction<MoneyAction>) => {
+    decMoney: (state, action: PayloadAction<MoneyAction>) => {
       state[action.payload.value] += action.payload.amount
     }
   }
 })
 
-export const { increment, decrement } = monyeSlice.actions
+export const { incMoney, decMoney } = monyeSlice.actions
 
 export default monyeSlice.reducer

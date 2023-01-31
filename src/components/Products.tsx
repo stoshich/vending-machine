@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { useAppSelector } from '../redux/hooks'
-import { IProduct } from '../types/product'
 import ProductItem from './ProductItem'
 
 const Products: FC = () => {
