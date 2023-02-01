@@ -10,10 +10,10 @@ export const moneyChangeSlice = createSlice({
   initialState,
   reducers: {
     incChange: (state, action: PayloadAction<MoneyAction>) => {
-      state[action.payload.value] += action.payload.amount
+      state[action.payload.value] += 1
     },
     decChange: (state, action: PayloadAction<MoneyAction>) => {
-      state[action.payload.value] += action.payload.amount
+      state[action.payload.value] -= 1
     }
   }
 })

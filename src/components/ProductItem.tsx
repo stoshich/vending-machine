@@ -1,14 +1,19 @@
 import React, { FC, useState } from 'react'
-import { useAppDispatch } from '../redux/hooks'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { decAmount } from '../redux/productsSlice'
 import { IProduct } from '../types/product'
+import { decDeposit } from "../redux/depositSlice";
 
 const ProductItem: FC<IProduct> = ({ id, name, amount, price }) => {
 
   const dispatch = useAppDispatch()
+  const deposit = useAppSelector(state => state.deposit.value)
 
   const onClickHandler = () => {
-    if (amount > 0) dispatch(decAmount(id))
+    if (deposit >= price && amount > 0) {
+      dispatch(decDeposit(price))
+      dispatch(decAmount(id))
+    }
   }
 
   return (

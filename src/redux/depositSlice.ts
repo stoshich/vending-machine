@@ -18,7 +18,7 @@ export const depositSlice = createSlice({
       state.value += action.payload
     },
     decDeposit: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
+      state.value -= action.payload
     }
   }
 })
