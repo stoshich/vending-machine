@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { decChange } from '../redux/moneyChangeSlice'
 import { incMoney } from '../redux/moneySlice'
 import { decAmount } from '../redux/productsSlice'
+import { IProduct } from '../types/product'
 import MyButton from './UI/Button/MyButton'
 
 
@@ -70,13 +71,28 @@ const ControlPanel: FC<ControlProps> = ({ toggle }) => {
       tempDep -= 1
       tempAmount -= 1
     }
-    while (tempDep >= 0) {
-      console.log('Сдачи нет')
-      const found = products.find((product) => product.price <= tempDep && product.amount > 0)
+
+    let tempCart = cart.slice(0)
+    let tempProducts = JSON.parse(JSON.stringify(products))
+    while (tempDep > 0) {
+      const found = tempProducts.find((product: IProduct) => product.price <= tempDep && product.amount > 0)
       if (found) {
         dispatch(decAmount(found.id))
+        tempProducts[found.id - 1].amount -= 1
         dispatch(decDeposit(found.price))
-        cart.find(product => product.id === found.id) ? dispatch(incAmount(found.id)) : dispatch(pushProduct({ ...found, amount: 1 }))
+        if (tempCart.find(product => product.id === found.id)) {
+          dispatch(incAmount(found.id))
+          tempCart = tempCart.map(product => {
+            if (product.id !== found.id) return product
+            return {
+              ...product,
+              amount: product.amount + 1
+            }
+          })
+        } else {
+          dispatch(pushProduct({ ...found, amount: 1 }))
+          tempCart.push({ ...found, amount: 1 })
+        }
         tempDep -= found?.price
       } else {
         break

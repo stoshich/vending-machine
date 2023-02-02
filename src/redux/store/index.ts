@@ -1,4 +1,4 @@
-import { configureStore, createReducer } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import productReducer from '../productsSlice'
 import moneyReducer from '../moneySlice'
 import depositReducer from '../depositSlice'
