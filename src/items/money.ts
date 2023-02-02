@@ -12,12 +12,12 @@ export const money: IMoney = {
 
 export const moneyChange: IMoney = {
   "1000": 0,
-  "500": 0,
-  "100": 30,
-  "50": 10,
-  "10": 20,
-  "5": 15,
-  "1": 30,
+  "500": 2,
+  "100": 20,
+  "50": 20,
+  "10": 24,
+  "5": 35,
+  "1": 34,
 }
 
 export const deposit: IMoney = {

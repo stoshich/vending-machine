@@ -1,30 +1,26 @@
 import { useState } from 'react'
 import './App.css'
+import Balance from './components/Balance'
+import Cart from './components/Cart'
 import ControlPanel from './components/ControlPanel'
 import Info from './components/Info'
 import InputForm from './components/InputForm'
 import Products from './components/Products'
 import Modal from './components/UI/Modal/Modal'
 import useModal from './hooks/useModal'
-import { useAppSelector } from './redux/hooks'
 
 function App() {
 
   const { isOpen, toggle } = useModal()
-  const balance = useAppSelector(state => state.money)
-  let total = 0
-  let key: keyof typeof balance
 
-  for (key in balance) {
-    if (balance[key]) total += +key * +balance[key]
-  }
 
   return (
     <div className="App">
-      <div>Баланс: {total}</div>
+      <Balance />
       <Products />
       <Info />
       <ControlPanel toggle={toggle} />
+      <Cart />
       <Modal isOpen={isOpen} toggle={toggle}>
         <InputForm isOpen={isOpen} toggle={toggle} />
       </Modal>

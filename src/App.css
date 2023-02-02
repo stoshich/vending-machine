@@ -1,8 +1,19 @@
 .App {
+  margin-top: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+button {
+  font: inherit;
+}
+
+.info {
+  font-size: 20px;
+  margin: 10px 0;
 }
 
 .products__container {
@@ -13,13 +24,123 @@
 }
 
 .product__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
   box-sizing: border-box;
   flex: 0 1 50%;
   padding: 5px;
   cursor: pointer;
+  border: 1px solid gray;
+}
+
+.disabled__item {
+  background-color: rgba(175, 170, 170, 0.5);
+  opacity: 70%;
 }
 
 .product__title {
   font-weight: 600;
+}
+
+.cart__container {
+  margin-top: 20px;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+.cart__items {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__product {
+  margin: 30px;
+}
+
+.input-form {
+  font-size: 26px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-form label {
+  margin: 20px;
+}
+
+/* input radio */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+
+[type="radio"]:checked:disabled+label::before,
+[type="radio"]:not(:checked):disabled+label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgb(187, 187, 187);
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  cursor: default;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: rgb(178, 196, 128);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }

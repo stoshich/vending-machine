@@ -13,8 +13,8 @@
 .modalBox {
   display: block;
   background: white;
-  width: 70%;
-  height: 70%;
+  width: 30%;
+  height: 30%;
   padding: 1rem;
   border-radius: 1rem;
 }

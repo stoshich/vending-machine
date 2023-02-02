@@ -6,5 +6,4 @@ export interface IMoney {
   '10': number;
   '5': number;
   '1': number;
-  total?: () => number
 }

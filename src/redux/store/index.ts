@@ -1,8 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, createReducer } from "@reduxjs/toolkit";
 import productReducer from '../productsSlice'
 import moneyReducer from '../moneySlice'
 import depositReducer from '../depositSlice'
 import moneyChangeReducer from '../moneyChangeSlice'
+import cartReducer from '../cartSlice'
 
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     money: moneyReducer,
     deposit: depositReducer,
     change: moneyChangeReducer,
+    cart: cartReducer,
   }
 })
 

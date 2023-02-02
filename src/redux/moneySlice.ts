@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 const initialState: IMoney = money
 
 export interface MoneyAction {
-  value: 1 | 5 | 10 | 50 | 100 | 500 | 1000;
+  value: keyof IMoney
 }
 
 export const monyeSlice = createSlice({
