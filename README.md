@@ -18,3 +18,7 @@ Vercel: <https://vending-machine-teal.vercel.app/>
 2. Установите зависимости проекта: `npm install`
 4. Запустить проект можно командой: `npm run dev`
 5. Откройте браузер и перейдите <http://localhost:5173>
+
+## Примечание
+
+Количество товара и денег нахоядится в `src/items`
