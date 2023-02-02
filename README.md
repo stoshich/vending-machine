@@ -1,5 +1,9 @@
 # vending-machine
 
+## Demo
+
+Vercel: <https://vending-machine-teal.vercel.app/>
+
 ## Описание
 
 Тестовое задание vending-machine
